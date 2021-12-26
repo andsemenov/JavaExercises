@@ -1,6 +1,6 @@
 package Arrays;
 
-public class ArraysTasks {
+public class ArraysTask1 {
     public static void main(String[] args) {
         //array of integers
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
