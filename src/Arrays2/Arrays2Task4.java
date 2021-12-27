@@ -22,7 +22,6 @@ public class Arrays2Task4 {
                     counter++;
                 }
             }
-            System.out.println(counter);
             if (max < counter) {
                 max = counter;
                 popular = j;
