@@ -6,7 +6,6 @@ public class Arrays2Task5_refactored {
         int positive = 0;
         int negative = 0;
         int length = array.length;
-        int number = length / 2;
         for (int i = 0; i < length; i++)
         {
             int temporary;
