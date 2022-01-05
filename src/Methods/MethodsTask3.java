@@ -2,30 +2,41 @@ package Methods;
 
 import java.util.Scanner;
 
+import static java.lang.Float.NaN;
+
 public class MethodsTask3 {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        float number1 = inputInteger();
-        float number2 = inputInteger();
+        float number1 = inputNumber();
+        float number2 = inputNumber();
         char operation = inputOperation();
         float result = calculateValue(number1, number2, operation);
-        if (result != Float.MAX_VALUE) {
-            System.out.println("The result is " + result);
-        } else {
-            System.out.println("Sorry, some mistake happened");
-        }
+        System.out.println("The result is " + result);
         scanner.close();
     }
 
-    static int inputInteger() {
-        System.out.println("Enter a number: ");
-        int value = scanner.nextInt();
-        return value;
+    static float inputNumber() {
+        System.out.println("Please enter a number!");
+        while (!scanner.hasNextFloat()) {
+            System.out.println("It should be a number!");
+            scanner.next();
+        }
+        float number = scanner.nextFloat();
+        return number;
     }
 
+
     static char inputOperation() {
-        System.out.println("Enter an operation: ");
-        char operation = scanner.next().charAt(0);
+        String line;
+        int count =0;
+        System.out.println("Enter an operation (+, -, *, /): ");
+        do {
+            if (count > 0) System.out.println("The line should start with +, -, * or /");
+            line = scanner.next();
+            count++;
+
+        } while (!(line.startsWith("+") || line.startsWith("-") || line.startsWith("*") || line.startsWith("/")));
+        char operation = line.charAt(0);
         return operation;
     }
 
@@ -41,10 +52,10 @@ public class MethodsTask3 {
             if (num2 != 0) {
             result = num1 / num2;
             } else {
-                result = Float.MAX_VALUE;
+                result = NaN;
             }
         } else {
-            result = Float.MAX_VALUE;
+            result = NaN;
         }
         return  result;
     }
