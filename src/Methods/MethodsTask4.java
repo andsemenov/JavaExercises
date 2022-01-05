@@ -12,8 +12,10 @@ public class MethodsTask4 {
         System.out.println(Arrays.toString(result));
     }
     static int[] inputArray() {
+        System.out.println("Enter size of the array: ");
         int n = scanner.nextInt();
         int[] array = new int[n];
+        System.out.println("Enter the array's elements: ");
         for (int i = 0; i < n; i++) {
             array[i] = scanner.nextInt();
         }
