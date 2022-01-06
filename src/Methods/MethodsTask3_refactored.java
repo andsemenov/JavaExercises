@@ -3,7 +3,6 @@ package Methods;
 import java.util.Scanner;
 
 public class MethodsTask3_refactored {
-    public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         double number1 = inputNumber();
         double number2 = inputNumber();
@@ -14,6 +13,7 @@ public class MethodsTask3_refactored {
 
     public static double inputNumber() {
         System.out.println("Input a number: ");
+        Scanner scanner = new Scanner(System.in);
         if(scanner.hasNextDouble()) {
             return scanner.nextDouble();
         } else {
@@ -24,6 +24,7 @@ public class MethodsTask3_refactored {
 
     public static char inputOperation() {
         int operationNumber;
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Select a code: \n1 - to add \n2 - to subtract\n3 - to multiply\n4 - to divide");
         if(scanner.hasNextInt()) {
             operationNumber = scanner.nextInt();
