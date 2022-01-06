@@ -17,7 +17,7 @@ public class MethodsTask3_refactored {
         if(scanner.hasNextDouble()) {
             return scanner.nextDouble();
         } else {
-            System.out.println("Ошибка при вводе. Повторите ввод");
+            System.out.println("Wrong input! Please input a number!");
             return inputNumber();
         }
     }
