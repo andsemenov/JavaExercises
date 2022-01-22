@@ -31,13 +31,6 @@ public class Student {
         System.out.println("I am relaxing!");
     }
 
-    public void initialize (String firstName, String lastName, int age, double averageRating) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.averageRating = averageRating;
-    }
-
     public String getFirstName() {
         return firstName;
     }
