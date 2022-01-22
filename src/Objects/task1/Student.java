@@ -62,6 +62,16 @@ public class Student {
     public void setAverageRating(double averageRating) {
         this.averageRating = averageRating;
     }
+
+    @Override
+    public String toString() {
+        return "Student {" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", averageRating=" + averageRating +
+                "}";
+    }
 }
 
 //Задача 1.
