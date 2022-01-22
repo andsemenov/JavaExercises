@@ -1,5 +1,6 @@
 package Objects.task2;
 
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -24,7 +25,7 @@ public class Purchase {
             addProductToBusket(product);
             System.out.println();
             System.out.println("To continue shopping - press 1, if you want to pay - another key");
-            if (!sc.next().equals("1") ) {/////////////////////////////
+            if (!sc.next().equals("1") ) {
                 isContinue = false;
             }
             System.out.println("======================================");
@@ -37,10 +38,7 @@ public class Purchase {
         int countCategoryA = 0, countCategoryB = 0, quantityInCategoryA = 0, quantityInCategoryB = 0;
         float sumCategoryA = 0, sumCategoryB = 0, sumAfterAllDiscounts;
         for(int i = 0; i < array.length; i++) {
-            //
-            System.out.println("The product " + array[i].getName() + " Category: " + array[i].getCategory() +
-                    " price before discount " + array[i].getPrice() + " quantity: " + array[i].getQuantity());
-            //
+            System.out.println(array[i].toString());
             if (array[i].getCategory().equals("A")) {
                 countCategoryA += array[i].getQuantity();
                 sumCategoryA += array[i].getPrice() * array[i].getQuantity();
@@ -75,8 +73,7 @@ public class Purchase {
         System.out.println("Your current shopping cart:");
         System.out.println();
         for(int i = 0; i < array.length; i++) {
-            System.out.println("The product " + array[i].getName() + " Category: " + array[i].getCategory() +
-                    " price before discount " + array[i].getPrice() + " quantity: " + array[i].getQuantity());
+            System.out.println(array[i].toString());
             System.out.println();
             }
         System.out.println("======================================");
@@ -121,8 +118,8 @@ public class Purchase {
         String category;
         do {
             System.out.println("Enter a category - A or B: ");
-            category = sc.next();
-        } while (!category.equalsIgnoreCase("A") && !category.equalsIgnoreCase("B"));
+            category = sc.next().toUpperCase();
+        } while (!category.equals("A") && !category.equals("B"));
         return category;
     }
 
