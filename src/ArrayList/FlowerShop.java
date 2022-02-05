@@ -5,31 +5,32 @@ import java.util.Scanner;
 
 public class FlowerShop {
     private final static int NUMBER_BOUQUETS = 5;
-    private static ArrayList<ArrayList> bouquets= new ArrayList<>();
+    private static ArrayList<Bouquet> bouquets= new ArrayList<>();
     private static int counter = 0;
 
-    private static double totalSum;
+    private static double totalPrice = 0;
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         prepareBouquets();
-        System.out.println("The total price of all bouquets is " + calculateSum(bouquets));
+        calculateSum(bouquets);
+        System.out.println("The total price of all bouquets is " + totalPrice );
         System.out.println("The amount of flowers is " + counter);
     }
     static void prepareBouquets() {
         for (int i = 0; i < NUMBER_BOUQUETS; i++) {
             System.out.println("Bouquet #" + (i + 1));
             int length = validateInputQuantity();
-            ArrayList<Flower> bouquet = new ArrayList<>();
+            Bouquet bouquet = new Bouquet();
             for (int j = 0; j < length; j++) {
                 int currentFlower = chooseFlower ();
                 if (currentFlower == 1) {
-                    bouquet.add(new Rose());
+                    bouquet.addFlower(new Rose());
                 } else if (currentFlower == 2) {
-                    bouquet.add(new Tulip());
+                    bouquet.addFlower(new Tulip());
                 } else if (currentFlower == 3) {
-                    bouquet.add(new Lily());
+                    bouquet.addFlower(new Lily());
                 } else if (currentFlower == 4) {
-                    bouquet.add(new Chrysanthemum());
+                    bouquet.addFlower(new Chrysanthemum());
                 }
             }
 
@@ -82,16 +83,12 @@ public static double inputNumber() {
         return quantity;
     }
 
-    static double calculateSum (ArrayList<ArrayList> bouquets) {
-        double sum = 0;
-        for(ArrayList bouquet: bouquets){
-            for(Object flower: bouquet){
-                counter++;
-                System.out.println(flower);
+    static void calculateSum (ArrayList<Bouquet> bouquets) {
 
-            }
+        for(Bouquet bouquet: bouquets){
+        counter += bouquet.getQuantity();
+        totalPrice += bouquet.getPrice();
         }
-        return sum;
     }
 }
 
