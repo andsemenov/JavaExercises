@@ -40,21 +40,6 @@ public class FileCopy {
                 int real = br.read(buffer);
                 bw.write(buffer, 0, real);
             }
-/*
-            int i;
-            do {
-                i = br.read();
-                if (i != -1) {
-                    if (Character.isLowerCase((char) i))
-                        bw.write(Character.toUpperCase((char) i));
-                    else if (Character.isUpperCase((char) i))
-                        bw.write(Character.toLowerCase((char) i));
-                    else
-                        bw.write((char) i);
-                }
-            } while (i != -1);
-            br.close();
-            bw.close();*/
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
