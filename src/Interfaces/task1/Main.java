@@ -13,17 +13,26 @@ public class Main {
         new Cat().runCats(runners);
 
     }
+
+    static class Pet {
+        String name;
+
+        public Pet(String name) {
+            this.name = name;
+        }
+
+        public Pet() {
+        }
+    }
     interface Runner {
         void run();
     }
-    static class Dog implements Runner {
-        String name;
-
-        public Dog () {
+    static class Dog extends Pet implements Runner {
+        public Dog(String name) {
+            super(name);
         }
 
-        public Dog(String name) {
-            this.name = name;
+        public Dog() {
         }
 
         @Override
@@ -45,12 +54,12 @@ public class Main {
             }
         }
     }
-    static class Cat implements Runner {
-
-        String name;
-        public Cat() {}
+    static class Cat extends Pet implements Runner {
         public Cat(String name) {
-            this.name = name;
+            super(name);
+        }
+
+        public Cat() {
         }
 
         @Override
