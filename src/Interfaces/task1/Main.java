@@ -15,13 +15,17 @@ public class Main {
     }
 
     static class Pet {
-        String name;
+        private String name;
 
         public Pet(String name) {
             this.name = name;
         }
 
         public Pet() {
+        }
+
+        public String getName() {
+            return name;
         }
     }
     interface Runner {
@@ -37,19 +41,19 @@ public class Main {
 
         @Override
         public void run() {
-            System.out.println(name + " is running");
+            System.out.println("Dog " + getName() + " is running");
         }
 
         @Override
         public String toString() {
             return "Dog{" +
-                    "name='" + name + '\'' +
+                    "name='" + getName() + '\'' +
                     '}';
         }
         void runDogs(Runner[] runners) {
             for (Runner runner: runners) {
                 if (runner instanceof Dog) {
-                    System.out.println(runner);
+                    runner.run();
                 }
             }
         }
@@ -64,19 +68,19 @@ public class Main {
 
         @Override
         public void run() {
-            System.out.println(name + " is running");
+            System.out.println("Cat " + getName() + " is running");
         }
 
         @Override
         public String toString() {
             return "Cat{" +
-                    "name='" + name + '\'' +
+                    "name='" + getName() + '\'' +
                     '}';
         }
         void runCats(Runner[] runners) {
             for (Runner runner: runners) {
                 if (runner instanceof Cat) {
-                    System.out.println(runner);
+                    runner.run();
                 }
             }
         }
